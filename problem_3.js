@@ -1,32 +1,25 @@
 function largestPrimeFactor(compositeNumber){
-	var limit = Math.floor(compositeNumber / 2);
-	var factors = [];
-
-	for(var i = 2; i <= limit; i++){
-		if(isPrime(i)){
-			console.log("Prime: " + i);
-			if(compositeNumber % i === 0){
-				console.log("Pushed: " + i);
-				factors.push(i);
-			}
-		}
-		console.log(i);
-	}
-
-	console.log(factors);
+	var primeFactors = findPrimeFactors(compositeNumber);
+	console.log(primeFactors[primeFactors.length - 1]);
 }
 
-function isPrime(candidate){
-	var limit = candidate / 2;
-	for(var i = 2; i <= limit; i++){
-		if(candidate % i === 0){
-			return false;
-		}
+function findPrimeFactors(number){
+	var primeFactors = [];
+	var limit = number / 2;
+
+	for(var i = 2; number > 1; i++){
+		if(number % i === 0){
+			primeFactors.push(i);
+			console.log(primeFactors);					//dbg
+			number /= i;
+			console.log("Now testing: " + number);		//dbg
+			console.log("New limit: " + limit);			//dbg
+		}	
 	}
-	return true;
+	console.log(primeFactors);							//dbg
+	return primeFactors;
 }
 
-
-
-//largestPrimeFactor(700);
-largestPrimeFactor(600851475143);
+//findPrimeFactors(43525);
+findPrimeFactors(600851475143);
+//largestPrimeFactor(600851475143);
