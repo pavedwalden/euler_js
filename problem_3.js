@@ -20,6 +20,4 @@ function findPrimeFactors(number){
 	return primeFactors;
 }
 
-//findPrimeFactors(43525);
 findPrimeFactors(600851475143);
-//largestPrimeFactor(600851475143);
